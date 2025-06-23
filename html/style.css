@@ -1,0 +1,160 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-container {
+    background: url('https://i.imgur.com/2zYvW5K.jpg') center/cover no-repeat; /* Kovová doska */
+    border: 4px solid #ff9810; /* Oranžový okraj */
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 380px;
+    box-shadow: 0 0 15px rgba(255, 152, 16, 0.2), inset 0 0 10px rgba(255, 152, 16, 0.1); /* Jemný kovový tieň */
+    position: relative;
+    overflow: hidden;
+}
+
+#game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Tmavý overlay pre starodávny efekt */
+    z-index: 0;
+}
+
+#game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+#game-title {
+    color: #ff9810; /* Oranžový text */
+    font-size: 26px;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Jemný tieň */
+}
+
+#attempts {
+    color: #ff9810; /* Oranžový text */
+    font-size: 18px;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Jemný tieň */
+    margin-left: auto; /* Posunie text doprava */
+}
+
+#grid {
+    display: grid;
+    gap: 8px;
+    z-index: 1;
+}
+
+.slot {
+    width: 60px;
+    height: 60px;
+    background: url('https://i.imgur.com/9kXzW0S.png') center/contain no-repeat; /* Obrázok runy */
+    border: 2px solid #ff9810; /* Oranžový okraj */
+    border-radius: 50%; /* Kruhová forma */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: transparent; /* Skryjeme text pred odokrytím */
+    transition: all 0.3s ease; /* Jemná animácia pre odokrytie */
+    box-shadow: 0 0 8px rgba(255, 152, 16, 0.2); /* Jemný tieň */
+}
+
+.slot:hover {
+    transform: scale(1.05); /* Jemný zoom pri hoveri */
+    box-shadow: 0 0 12px rgba(255, 152, 16, 0.4); /* Výraznejší tieň */
+}
+
+.slot.revealed {
+    cursor: default;
+    background: none; /* Odstránime runu po odokrytí */
+    color: #ff9810; /* Oranžový text */
+    animation: rune-glow 0.3s ease forwards; /* Animácia rozsvietenia */
+}
+
+.slot.item {
+    background: linear-gradient(135deg, #ff9810, #d97e00); /* Oranžový gradient pre item */
+    color: #000000; /* Čierny text pre kontrast */
+    box-shadow: 0 0 12px rgba(255, 152, 16, 0.5); /* Výraznejší tieň */
+}
+
+.slot.cut {
+    background: #1a1a1a; /* Tmavo čierne pozadie */
+    color: #ff0000; /* Červený text pre porezanie */
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Červený tieň */
+}
+
+.slot.empty {
+    background: #1a1a1a; /* Tmavo čierne pozadie */
+    color: #666666; /* Šedý text pre prázdny slot */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Jemný tieň */
+}
+
+/* Animácia rozsvietenia runy */
+@keyframes rune-glow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Jemná dekorácia na doske */
+#metal-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#metal-details::before {
+    content: '✦';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: #ff9810;
+    opacity: 0.3;
+}
+
+#metal-details::after {
+    content: '✦';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #ff9810;
+    opacity: 0.3;
+}
