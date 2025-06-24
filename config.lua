@@ -43,6 +43,6 @@ Config.CooldownTime = 10 --  sekundách
 Config.SearchTime = 5 -- Čas progress baru v sekundách
 
 -- Discord Webhook URL
-Config.WebhookURL = "https://discord.com/api/webhooks/1365698861229932594/tK9x6E7pyl00wZGA64O_DAiGPWAqd90QHI_RNyVhXm4wB0oOMgDCtyQ6yvZZPc5S3EUW" -- Nahraď za tvoj Discord webhook URL
-Config.WebhookAvatar = "https://i.imgur.com/YourAvatar.png" -- Voliteľné: URL avatara pre webhook
-Config.ServerName = "RPčko.eu" -- Názov servera pre embed
+Config.WebhookURL = "YOUR-DISCORD-WEBHOOK-HERE!!" -- Nahraď za tvoj Discord webhook URL
+Config.WebhookAvatar = "WEBHOOK-AVATAR-HERE!!" -- Voliteľné: URL avatara pre webhook
+Config.ServerName = "SERVER-NAME" -- Názov servera pre embed
